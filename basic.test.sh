@@ -11,7 +11,7 @@ check_result () {
 }
 
 for sentiment in positive negative neutral; do
-  docker run intservice -w $sentiment | grep $sentiment
+  docker run iplocation -i $sentiment | grep $sentiment
   check_result $sentiment
 done
 
