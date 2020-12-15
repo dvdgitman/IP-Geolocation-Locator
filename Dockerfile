@@ -2,8 +2,8 @@ FROM python:3
 
 RUN pip3 install requests
 
-WORKDIR /apps
+WORKDIR /ip
 
-COPY . /apps
+COPY . /ip
 
-CMD ["python", "David.py", "-i", "1.1.1.1", "8.8.8.8"]
+ENTRYPOINT ["/usr/local/bin/python3", "/ip/David.py"]
