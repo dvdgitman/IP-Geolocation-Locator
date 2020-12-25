@@ -1,27 +1,17 @@
-def userInput
-
 pipeline {
-    agent any
+
+    agent {
+        label 'docker_node'
+    }
 
     stages {
-        stage('Input') {
+        stage('Build Docker image') {
             steps {
-                script {
-                    userInput = input message: 'Please provide your input', ok: 'confirm', parameters: [choice(name: '', choices: ['option 1', 'option2'], description: '')]
+                dir('/var/jenkins_home/workspace/Test'){
+                    script {
+                        sh "sudo docker build -t iplocation ."
+                    }
                 }
-            }
-        }
-        stage('Hello') {
-            steps {
-                dir('CoolNewDirectory') {
-                    git branch: 'main', credentialsId: 'github_cred', url: 'https://github.com/dvdgitman/IP-Geolocation-Locator.git'
-                    echo 'Hello World'
-                }
-            }
-        }
-        stage('Print Inputed string') {
-            steps {
-                println("Input was " + userInput)
             }
         }
     }

@@ -10,8 +10,8 @@ check_result () {
   fi
 }
 
-for sentiment in positive negative neutral; do
-  docker run intservice -w $sentiment | grep $sentiment
+for sentiment in City Country Region ; do
+  docker run iplocation -i 8.8.8.8 | grep $sentiment
   check_result $sentiment
 done
 
