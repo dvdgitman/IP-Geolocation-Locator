@@ -3,9 +3,9 @@ check_result () {
   RESULT=$?
   MESSAGE=$1
   if [ $RESULT == 0 ]; then
-    echo [IMAGE WILL BUILD SUCCESSFULLY] $MESSAGE
+    echo [SUCCESSFULLY] $MESSAGE
   else
-    echo [IMAGE WILL NOT BUILD SUCCESSFULLY] $MESSAGE
+    echo [FAILED] $MESSAGE
     exit 1
   fi
 }
