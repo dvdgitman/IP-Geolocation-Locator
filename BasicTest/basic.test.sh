@@ -5,7 +5,7 @@ check_result () {
   if [ $RESULT == 0 ]; then
     echo [SUCCESS] $MESSAGE
   else
-    echo [FAIL] $MESSAGE
+    echo [FAILED] $MESSAGE
     exit 1
   fi
 }
