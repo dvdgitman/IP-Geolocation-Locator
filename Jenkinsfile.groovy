@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
-                dir('/var/jenkins_home/workspace/Docker Node') {
+                dir('/var/jenkins_home/workspace/DockerNode') {
                     script {
                         sh "sudo docker build -t iplocation ."
                     }
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test Docker image') {
             steps {
-                dir('/var/jenkins_home/workspace/Docker Node/Basic Test') {
+                dir('/var/jenkins_home/workspace/DockerNode/BasicTest') {
                     script {
                         try {
                             sh "sudo ./basic.test.sh"
