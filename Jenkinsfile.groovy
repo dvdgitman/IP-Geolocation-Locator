@@ -9,7 +9,7 @@ pipeline {
             steps {
                 dir('/var/jenkins_home/workspace/DockerNode') {
                     script {
-                        sh "sudo docker build -t iplocation ."
+                        sh "docker build -t iplocation ."
                     }
                 }
             }
