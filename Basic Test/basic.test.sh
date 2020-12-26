@@ -3,7 +3,7 @@ check_result () {
   RESULT=$?
   MESSAGE=$1
   if [ $RESULT == 0 ]; then
-    echo [SUCCESSFULLY] $MESSAGE
+    echo [SUCCESS] $MESSAGE
   else
     echo [FAILED] $MESSAGE
     exit 1
