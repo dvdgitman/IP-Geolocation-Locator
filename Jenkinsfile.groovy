@@ -16,7 +16,7 @@ pipeline {
                         latestVersion = _latestVersion.trim()
                         println("Latest Version seen is ${latestVersion}")
                         println("Latest commit seen is ${lastCommit}")
-                        sh "sudo docker build --tag=davidgman/iplocator:${latestVersion}-${lastCommit} . "
+                        sh "docker build -t davidgman/iplocation:${latestVersion}-${lastCommit} ."
                     }
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
                 dir('/var/jenkins_home/workspace/DockerNode/BasicTest') {
                     script {
                         try {
-                            sh "./basic.test.sh davidgman/iplocator:${latestVersion}-${lastCommit}"
+                            sh "./basic.test.sh davidgman/iplocation:${latestVersion}-${lastCommit}"
                         } catch (err) {
                             println("Error thrown on test file execution")
                             currentBuild.result = 'ABORTED'
@@ -38,7 +38,7 @@ pipeline {
         }
         stage('upload image to repository'){
             steps {
-                sh "docker push davidgman/iplocator:${latestVersion}-${lastCommit}"
+                sh "docker push davidgman/iplocation:${latestVersion}-${lastCommit}"
             }
         }
     }

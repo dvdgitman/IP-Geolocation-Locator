@@ -11,7 +11,7 @@ check_result () {
 }
 
 for sentiment in City Country Region ; do
-  docker run iplocation -i 8.8.8.8 | grep $sentiment
+  docker run davidgman/iplocation -i 8.8.8.8 | grep $sentiment
   check_result $sentiment
 done
 
