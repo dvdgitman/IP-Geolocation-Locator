@@ -35,7 +35,7 @@ pipeline {
                 }
             }
         }
-        stage('upload image to repository'){
+        stage('Upload image to DockerHub'){
             steps {
                 sh "docker push davidgman/iplocation ${latestVersion}"
             }
