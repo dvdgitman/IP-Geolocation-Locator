@@ -15,7 +15,7 @@ pipeline {
                         lastCommit = _lastCommit.trim()
                         latestVersion = _latestVersion.trim()
                         println("Latest Version seen is ${latestVersion}")
-                        sh "docker build -t davidgman/iplocation:${latestVersion} ."
+                        sh "docker build -t davidgman/iplocation ${latestVersion} ."
                     }
                 }
             }
@@ -25,7 +25,7 @@ pipeline {
                 dir('/var/jenkins_home/workspace/DockerNode/BasicTest') {
                     script {
                         try {
-                            sh "./basic.test.sh davidgman/iplocation:${latestVersion}"
+                            sh "./basic.test.sh davidgman/iplocation ${latestVersion}"
                         } catch (err) {
                             println("Error thrown on test file execution")
                             currentBuild.result = 'ABORTED'
@@ -37,7 +37,7 @@ pipeline {
         }
         stage('upload image to repository'){
             steps {
-                sh "docker push davidgman/iplocation:${latestVersion}-${lastCommit}"
+                sh "docker push davidgman/iplocation ${latestVersion}"
             }
         }
     }
