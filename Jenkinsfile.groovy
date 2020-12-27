@@ -15,8 +15,7 @@ pipeline {
                         lastCommit = _lastCommit.trim()
                         latestVersion = _latestVersion.trim()
                         println("Latest Version seen is ${latestVersion}")
-                        println("Latest commit seen is ${lastCommit}")
-                        sh "docker build -tag=davidgman/iplocation:${latestVersion}-${lastCommit} ."
+                        sh "docker build -t davidgman/iplocation:${latestVersion}."
                     }
                 }
             }
@@ -26,7 +25,7 @@ pipeline {
                 dir('/var/jenkins_home/workspace/DockerNode/BasicTest') {
                     script {
                         try {
-                            sh "./basic.test.sh davidgman/iplocation:${latestVersion}-${lastCommit}"
+                            sh "./basic.test.sh davidgman/iplocation:${latestVersion}"
                         } catch (err) {
                             println("Error thrown on test file execution")
                             currentBuild.result = 'ABORTED'
