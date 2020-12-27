@@ -19,7 +19,7 @@ pipeline {
                 dir('/var/jenkins_home/workspace/DockerNode/BasicTest') {
                     script {
                         try {
-                            sh "./basic.test.sh"
+                            sh "./basic.test.sh davidgman/iplocator:${latestVersion}-${lastCommit}"
                         } catch (err) {
                             println("Error thrown on test file execution")
                             currentBuild.result = 'ABORTED'
@@ -27,6 +27,11 @@ pipeline {
                         }
                     }
                 }
+            }
+        }
+        stage('upload image to repository'){
+            steps {
+                sh "docker push davidgman/iplocator:${latestVersion}-${lastCommit}"
             }
         }
     }
