@@ -16,7 +16,7 @@ pipeline {
                         latestVersion = _latestVersion.trim()
                         println("Latest Version seen is ${latestVersion}")
                         println("Latest commit seen is ${lastCommit}")
-                        sh "sudo docker build -t=davidgman/iplocator:${latestVersion}-${lastCommit} . "
+                        sh "sudo docker build --tag=davidgman/iplocator:${latestVersion}-${lastCommit} . "
                     }
                 }
             }
