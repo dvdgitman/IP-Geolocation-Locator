@@ -15,7 +15,7 @@ pipeline {
                         lastCommit = _lastCommit.trim()
                         latestVersion = _latestVersion.trim()
                         println("Latest Version seen is ${latestVersion}")
-                        sh "docker build -t davidgman/iplocation:${latestVersion}."
+                        sh "docker build -t davidgman/iplocation:${latestVersion} ."
                     }
                 }
             }
