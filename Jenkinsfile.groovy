@@ -1,3 +1,6 @@
+def lastCommit
+def latestVersion
+
 pipeline {
 
     agent {
@@ -15,7 +18,7 @@ pipeline {
                         lastCommit = _lastCommit.trim()
                         latestVersion = _latestVersion.trim()
                         println("Latest Version seen is ${latestVersion}")
-                        sh "docker build -t davidgman/iplocation ${latestVersion} ."
+                        sh "docker build -t davidgman/iplocation${latestVersion}-${lastCommit} ."
                     }
                 }
             }
@@ -25,7 +28,7 @@ pipeline {
                 dir('/var/jenkins_home/workspace/DockerNode/BasicTest') {
                     script {
                         try {
-                            sh "./basic.test.sh davidgman/iplocation ${latestVersion}"
+                            sh "./basic.test.sh davidgman/iplocation${latestVersion}-${lastCommit}"
                         } catch (err) {
                             println("Error thrown on test file execution")
                             currentBuild.result = 'ABORTED'
@@ -37,7 +40,7 @@ pipeline {
         }
         stage('Upload image to DockerHub'){
             steps {
-                sh "docker push davidgman/iplocation ${latestVersion}"
+                sh "docker push davidgman/iplocation${latestVersion}-${lastCommit}"
             }
         }
     }
