@@ -4,16 +4,17 @@
   become: yes
 
   tasks:
-    - name: Make sure docker is installed
+    - name: Make Sure Docker Is Installed
       apt:
         name: docker.io
         state: present
         update_cache: yes
 
-    - name: Start docker service
+    - name: Start Docker Service
       service:
         name: docker
         state: started
 
-    - name: run docker image
-      shell: "docker run -p 80:80 davidgman/iplocation:{{ tag }} -i 8.8.8.8"
+    - name: Run Docker Image
+      shell: "sudo docker run -d -p 80:80 davidgman/iplocation:{{ tag }} -i 8.8.8.8"
+
