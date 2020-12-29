@@ -16,7 +16,7 @@
         state: started
 
     - name: export image
-        shell: "docker save iplocation:latest > /tmp/iplocation.tar"
+        shell:  docker save iplocation:latest > /tmp/iplocation.tar
         become: yes
         delegate_to: 127.0.0.1
 
