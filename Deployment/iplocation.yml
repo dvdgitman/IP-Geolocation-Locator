@@ -18,10 +18,11 @@
     - name: run docker image
       command:
       args:
-        - docker
-        - run
-        - -d
-        - --restart
-        - always
-        - davidgman/iplocation:{{ tag }}
-        - -i 8.8.8.8
+        argv:
+          - docker
+          - run
+          - -d
+          - --restart
+          - always
+          - davidgman/iplocation:{{ tag }}
+          - -i 8.8.8.8
