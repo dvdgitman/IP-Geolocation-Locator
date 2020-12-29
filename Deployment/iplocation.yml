@@ -16,13 +16,4 @@
         state: started
 
     - name: run docker image
-      command:
-      args:
-        argv:
-          - docker
-          - run
-          - -d
-          - --restart
-          - always
-          - davidgman/iplocation
-          - -i 8.8.8.8
+      shell: "docker run -d -p 80:80 --restart always davidgman/iplocation:{{ tag }} -i 8.8.8.8"
