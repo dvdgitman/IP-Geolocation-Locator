@@ -16,4 +16,4 @@
         state: started
 
     - name: Start iplocation container
-      shell: "docker run davidgman/iplocation:{{ tag }} -i 8.8.8.8"
+      shell: "docker run -d --restart always -t davidgman/iplocation:{{ tag }} -i 8.8.8.8"
