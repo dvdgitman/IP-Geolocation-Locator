@@ -1,0 +1,19 @@
+---
+- name: ip geolocation locator
+  hosts: iplocation
+  become: yes
+
+  tasks:
+    - name: Make sure docker is installed
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Start docker service
+      service:
+        name: docker
+        state: started
+
+    - name: Start iplocation container
+      shell: "docker run davidgman/iplocation:{{ tag }} -w perfect"
