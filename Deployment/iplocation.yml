@@ -15,32 +15,5 @@
         name: docker
         state: started
 
-    - name: export image
-        shell:  '"docker save iplocation:latest > /tmp/iplocation.tar"'
-        become: yes
-        delegate_to: 127.0.0.1
-
-    - name: set permissions
-        file:
-        path: /tmp/iplocation.tar
-        owner: ubuntu
-        group: ubuntu
-        mode: '0777'
-        become: yes
-        delegate_to: 127.0.0.1
-
-    - name: Copy Docker image to remote location
-        copy:
-        src: /tmp/iplocation.tar
-        dest: /tmp/iplocation.tar
-
-    - name: Load Docker image
-      docker_image:
-      name: iplocation
-      tag: latest
-      load_path: /tmp/iplocation.tar
-      become: yes
-
-
     - name: Start iplocation container
       shell: "docker run -d --restart always davidgman/iplocation:{{ tag }} -i 8.8.8.8"
