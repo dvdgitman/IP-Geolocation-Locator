@@ -43,7 +43,7 @@ pipeline {
                 sh "docker push davidgman/iplocation${latestVersion}-${lastCommit}"
             }
         }
-         stage('Deploy to Prod') {
+         stage('Deploy to Productions') {
             steps {
                script {
                    dir('/var/jenkins_home/workspace/ImageTester/Deployment/') {
