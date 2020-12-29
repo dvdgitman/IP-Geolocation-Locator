@@ -43,5 +43,15 @@ pipeline {
                 sh "docker push davidgman/iplocation${latestVersion}-${lastCommit}"
             }
         }
+         stage('Deploy to Prod') {
+            steps {
+               script {
+                   dir('deployment') {
+                       sh "ansible-playbook -i inventory.ini iplocation.yml --extra-vars tag=${latestVersion}-${lastCommit}"
+                   }
+               }
+
+            }
+        }
     }
 }    

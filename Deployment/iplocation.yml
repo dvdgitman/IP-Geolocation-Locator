@@ -1,5 +1,5 @@
 ---
-- name: ip geolocation locator
+- name: ip geolocation locator deployment
   hosts: iplocation
   become: yes
 
@@ -16,4 +16,4 @@
         state: started
 
     - name: Start iplocation container
-      shell: "docker run davidgman/iplocation:{{ tag }} -w perfect"
+      shell: "docker run davidgman/iplocation:{{ tag }} -i 8.8.8.8"
