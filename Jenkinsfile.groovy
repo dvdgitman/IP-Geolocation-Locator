@@ -46,7 +46,7 @@ pipeline {
          stage('Deploy to Prod') {
             steps {
                script {
-                   dir('deployment') {
+                   dir('/var/jenkins_home/workspace/ImageTester/Deployment/') {
                        sh "ansible-playbook -i inventory.ini iplocation.yml --extra-vars tag=${latestVersion}-${lastCommit}"
                    }
                }
