@@ -15,10 +15,6 @@
         name: docker
         state: started
 
-    - name: Log into DockerHub
-      docker_login:
-        username: davidgman
-
     - name: Run Docker Image
       shell: "docker run -p 80:80 davidgman/iplocation:{{ tag }} -i 8.8.8.8"
 
