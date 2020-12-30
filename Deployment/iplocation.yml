@@ -9,13 +9,13 @@
         name: docker.io
         state: present
         update_cache: yes
-      delegate: 172.31.21.146
+
 
     - name: Start Docker Service
       service:
         name: docker
         state: started
-      delegate: 172.31.21.146
+
 
     - name: Run Docker Image
       shell: "docker run --restart always -p 80:80 davidgman/iplocation:{{ tag }} -i 8.8.8.8"
