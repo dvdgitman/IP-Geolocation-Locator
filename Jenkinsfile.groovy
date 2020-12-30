@@ -19,6 +19,7 @@ pipeline {
                         latestVersion = _latestVersion.trim()
                         println("Latest Version seen is ${latestVersion}")
                         sh "docker build -t davidgman/iplocation${latestVersion}-${lastCommit} ."
+                        echo "Docker Image Build Successfully"
                     }
                 }
             }
