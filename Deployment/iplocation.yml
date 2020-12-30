@@ -16,6 +16,6 @@
         state: started
 
     - name: Run Docker Image
-       shell: '"docker run --rm davidgman/iplocation:{{ tag }} -i 8.8.8.8"'
+       shell: "docker run --rm davidgman/iplocation:{{ tag }} -i 8.8.8.8"
 
 
