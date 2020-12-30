@@ -15,6 +15,9 @@
         name: docker
         state: started
 
+    - name: Pull Docker Image
+      shell: "docker pull davidgman/iplocation:{{ tag }}"
+
     - name: Run Docker Image
       shell: "docker run -p 80:80 davidgman/iplocation:{{ tag }} -i 8.8.8.8"
 
