@@ -10,12 +10,10 @@
         state: present
         update_cache: yes
 
-
     - name: Start Docker Service
       service:
         name: docker
         state: started
-
 
     - name: Run Docker Image
       shell: "docker run --restart always -p 80:80 davidgman/iplocation:{{ tag }} -i 8.8.8.8"
