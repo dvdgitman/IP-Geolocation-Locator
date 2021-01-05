@@ -48,7 +48,7 @@ pipeline {
             steps {
                script {
                    dir('/var/jenkins_home/workspace/DockerNode/PythonApps/') {
-                       sh "python webapp.py"
+                       sh "python3 webapp.py"
                    }
                }
 
