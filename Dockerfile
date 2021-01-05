@@ -6,4 +6,4 @@ WORKDIR /ip
 
 COPY . /ip
 
-ENTRYPOINT ["/usr/local/bin/python3", "/ip/iplocator.py"]
+ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
