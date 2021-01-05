@@ -44,10 +44,11 @@ pipeline {
                 sh "docker push davidgman/iplocation${latestVersion}-${lastCommit}"
             }
         }
-         stage('Deploy to Productions') {
+         stage('Deploy as WebApp') {
             steps {
                script {
                    dir('/var/jenkins_home/workspace/DockerNode/PythonApps/') {
+                       sh "pip3 install flask"
                        sh "python3 webapp.py"
                    }
                }
