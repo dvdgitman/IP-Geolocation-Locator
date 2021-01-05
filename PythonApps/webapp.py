@@ -1,9 +1,10 @@
 from flask import Flask
-app = Flask("IPLOCATOR")
+app = Flask(__name__)
 
-@app.route("/")
+@app.route("/ip", methods=["GET", "POST"])
 
 def hello():
-    return "Hello World!"
+ return "Here we will check geolocation from an IP address"
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(port=80)

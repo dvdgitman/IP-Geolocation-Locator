@@ -47,13 +47,14 @@ pipeline {
          stage('Deploy to Productions') {
             steps {
                script {
-                   dir('/var/jenkins_home/workspace/DockerNode/PythonApps/') {
-                       sh "python webapp.py"
+                   dir('/var/jenkins_home/workspace/DockerNode/Deployment/') {
+                       sh "ansible-playbook -i inventory.ini iplocation.yml --extra-vars tag=${latestVersion}-${lastCommit}"
                    }
                }
 
             }
         }
     }
-}
+} 
 
+   
