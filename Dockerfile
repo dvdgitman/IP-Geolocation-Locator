@@ -6,4 +6,6 @@ COPY . /ip
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
+EXPOSE 5000
+
+ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py","/ip/PythonApps/webapp.py" ]

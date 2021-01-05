@@ -7,4 +7,4 @@ def hello():
  return "Here we will check geolocation from an IP address"
 
 if __name__ == "__main__":
-    app.run(port=80)
+    app.run()
