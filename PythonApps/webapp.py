@@ -4,7 +4,7 @@ from PythonApps import iplocator
 
 app = Flask(__name__)
 
-@app.route("/ip")
+@app.route("/dimaurmywifu")
 
 def ip():
  return iplocator.response
