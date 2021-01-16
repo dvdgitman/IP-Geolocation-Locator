@@ -8,16 +8,17 @@ Author : David Gitman
 
 import requests
 import argparse
+import os
 
 # This is the API url
 url = "https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/"
 
-
+api_key = os.environ.get('api_key')
 # Set up headers for API call
 headers = {
     'x-rapidapi-host': "ip-geolocation-ipwhois-io.p.rapidapi.com",
-    'x-rapidapi-key': "45c974ed84mshc94c890bbd503ffp1d0eb4jsn218473e78459"
-    }
+    'x-rapidapi-key': api_key
+}
 
 # Get Arguments
 parser = argparse.ArgumentParser()
