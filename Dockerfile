@@ -8,7 +8,7 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-COPY webapp.py ./
+COPY PythonApps/webapp.py ./
 
 EXPOSE 5000
 
