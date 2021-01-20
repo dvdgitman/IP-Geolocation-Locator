@@ -10,4 +10,6 @@ COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
+ENTRYPOINT FLASK_APP=/ip/PythonApps/webapp.py flask run --host=0.0.0.0
+
+#ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]

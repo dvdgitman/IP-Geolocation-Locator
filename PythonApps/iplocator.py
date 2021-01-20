@@ -46,5 +46,3 @@ for ip in args.ip:
     except Exception:
         print("invalid IP address: " + querystring["ip"])
         print()
-
-
