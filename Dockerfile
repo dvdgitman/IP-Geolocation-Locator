@@ -12,7 +12,7 @@ COPY PythonApps/webapp.py ./
 
 EXPOSE 5000
 
-ARG api_key="45c974ed84mshc94c890bbd503ffp1d0eb4jsn218473e78459"
+ENV api_key="45c974ed84mshc94c890bbd503ffp1d0eb4jsn218473e78459"
 
 #ENV FLASK_APP=webapp.py
 #
