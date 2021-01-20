@@ -2,7 +2,7 @@ import sys
 from flask import Flask
 import iplocator
 from flask import jsonify
-import argparse
+from flask import request
 
 app = Flask(__name__)
 
@@ -15,11 +15,17 @@ def ip():
                    "Region:" + iplocator.region, "Country:" + iplocator.country)
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--ip", type=str, help="write an IP address", required=True)
-    args = parser.parse_args()
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+
+@app.route('/shutdown')
+def shutdown():
+    shutdown_server()
+    return 'Server shutting down...'
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000, host="0.0.0.0")
