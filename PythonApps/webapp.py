@@ -1,7 +1,6 @@
 from flask import Flask
 from PythonApps import iplocator
 from flask import jsonify
-from flask import json
 
 app = Flask(__name__)
 
