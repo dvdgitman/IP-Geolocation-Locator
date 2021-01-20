@@ -14,6 +14,6 @@ EXPOSE 5000
 
 ENV api_key=45c974ed84mshc94c890bbd503ffp1d0eb4jsn218473e78459
 
-#ENTRYPOINT FLASK_APP=./webapp.py flask run --host=0.0.0.0
+ENTRYPOINT FLASK_APP=./webapp.py flask run --host=0.0.0.0
 
-ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
+#ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
