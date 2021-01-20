@@ -1,0 +1,54 @@
+---
+# tasks file for test-role-1
+# first instance
+
+- name: EC2
+  become: yes
+  hosts: hosts
+  tasks:
+      - name: Deploy Instance
+        ec2:
+          aws_access_key: "{{ec2_access_key}}"
+          aws_secret_key: "{{ec2_secret_key}}"
+          key_name: ansible
+          instance_type: t2.micro
+          image: ami-0a91cd140a1fc148a
+          wait: yes
+          group: MySecurityGroup
+          count: 1
+          vpc_subnet_id: subnet-d34b319f
+          assign_public_ip: yes
+
+      - name: Make Sure Docker Is Installed
+        apt:
+          name: docker.io
+          state: present
+          update_cache: yes
+        become: yes
+
+      - name: Start Docker Service
+        service:
+          name: docker
+          state: started
+
+      - name: Clone Git Repository
+        git:
+          repo: https://github.com/dvdgitman/ip-geolocation-locator
+          dest: /src/iplocation
+
+      - name: Log into DockerHub
+        docker_login:
+          username: davidgman2
+          password: 123456789
+
+      - name: Build an image and push to docker hub
+        docker_image:
+          build:
+              path: /src/iplocation:1.07
+          name: ip
+          repository: davidgman2/ip
+          tag: v1
+          source: build
+
+
+
