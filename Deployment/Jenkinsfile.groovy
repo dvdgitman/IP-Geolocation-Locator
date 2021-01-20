@@ -48,7 +48,6 @@ pipeline {
             steps {
                script {
                    dir('/var/jenkins_home/workspace/DockerNode/PythonApps/') {
-                       sh "pip3 install flask"
                        sh "python3 webapp.py"
                    }
                }

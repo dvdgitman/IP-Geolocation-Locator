@@ -1,4 +1,4 @@
-import flask
+import sys
 from flask import Flask
 from PythonApps import iplocator
 from flask import jsonify
@@ -6,7 +6,8 @@ import argparse
 
 app = Flask(__name__)
 
-iplocator.py()
+sys.path.append('/var/jenkins_home/workspace/DockerNode/PythonApps/')
+
 
 @app.route("/ip", methods=['GET', 'POST'])
 def ip():
@@ -20,6 +21,5 @@ def main():
     args = parser.parse_args()
 
 
-main()
-# if __name__ == "__main__":
-#     app.run(debug=True, port=5000)
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
