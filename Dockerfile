@@ -12,6 +12,6 @@ COPY PythonApps/webapp.py ./
 
 EXPOSE 5000
 
-ENTRYPOINT FLASK_APP=./webapp.py flask run --host=0.0.0.0
+#ENTRYPOINT FLASK_APP=./webapp.py flask run --host=0.0.0.0
 
-#ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
+ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
