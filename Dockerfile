@@ -18,8 +18,6 @@ ENV FLASK_APP=webapp.py
 
 ENV FLASK_RUN_HOST=0.0.0.0
 
-CMD ["flask", "run"]
-
-#ENTRYPOINT FLASK_APP=./webapp.py flask run -i 1.1.1.1 8.8.8.8 --host=0.0.0.0
+ENTRYPOINT flask run
 
 #ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
