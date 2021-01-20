@@ -18,4 +18,4 @@ ENV api_key="45c974ed84mshc94c890bbd503ffp1d0eb4jsn218473e78459"
 #
 #ENTRYPOINT flask run
 
-ENTRYPOINT ["/usr/local/bin/python3", "/ip/PythonApps/iplocator.py"]
+ENTRYPOINT ["/usr/local/bin/python3", "/ip/iplocator.py"]
