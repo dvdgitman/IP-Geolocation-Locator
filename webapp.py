@@ -28,4 +28,4 @@ def shutdown():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000, host="172.31.24.252")
+    app.run(debug=True, port=5000, host="172.31.24.252/20")
