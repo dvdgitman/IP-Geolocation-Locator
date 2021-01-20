@@ -1,3 +1,4 @@
+import flask
 from flask import Flask
 from PythonApps import iplocator
 from flask import jsonify
@@ -16,9 +17,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--ip", type=str, help="write an IP address", required=True)
     args = parser.parse_args()
-    ip = args.ip
-    logger.info("Parameters passed are " + str(args))
 
 
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+main()
+# if __name__ == "__main__":
+#     app.run(debug=True, port=5000)
