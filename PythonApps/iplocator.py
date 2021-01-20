@@ -20,7 +20,8 @@ headers = {
 }
 # Get Arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('-i', '--ips', nargs="+", action='extend', dest='ip', type=str, help='write an IP address', required=True)
+parser.add_argument('-i', '--ips', nargs="+", action='extend', dest='ip', type=str, help='write an IP address',
+                    required=True)
 args = parser.parse_args()
 
 # Print geolocation for each IP in the Arguments
@@ -28,7 +29,7 @@ for ip in args.ip:
     print(ip)
 
     # Request geolocation from API
-    querystring = {"ip":ip}
+    querystring = {"ip": ip}
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     # Print geolocation results
@@ -46,3 +47,7 @@ for ip in args.ip:
     except Exception:
         print("invalid IP address: " + querystring["ip"])
         print()
+
+
+def py():
+    return None

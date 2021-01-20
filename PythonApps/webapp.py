@@ -6,6 +6,7 @@ import argparse
 
 app = Flask(__name__)
 
+iplocator.py()
 
 @app.route("/ip", methods=['GET', 'POST'])
 def ip():
