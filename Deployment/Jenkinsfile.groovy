@@ -47,7 +47,7 @@ pipeline {
          stage('Deploy as WebApp') {
             steps {
                script {
-                   dir('/var/jenkins_home/workspace/DockerNode/PythonApps/') {
+                   dir('/var/jenkins_home/workspace/DockerNode/') {
                        sh "python3 webapp.py"
                    }
                }

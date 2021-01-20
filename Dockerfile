@@ -8,8 +8,6 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-COPY webapp.py ./PythonApps
-
 EXPOSE 5000
 
 ENV api_key="45c974ed84mshc94c890bbd503ffp1d0eb4jsn218473e78459"
