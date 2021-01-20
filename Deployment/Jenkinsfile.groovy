@@ -18,7 +18,7 @@ pipeline {
                         lastCommit = _lastCommit.trim()
                         latestVersion = _latestVersion.trim()
                         println("Latest Version seen is ${latestVersion}")
-                        sh "docker build -t davidgman/iplocation${latestVersion}-${lastCommit} ."
+                        sh "docker build --build-arg api_key=45c974ed84mshc94c890bbd503ffp1d0eb4jsn218473e78459 -t davidgman/iplocation${latestVersion}-${lastCommit} ."
                         echo "Docker Image Build Successfully"
                     }
                 }
