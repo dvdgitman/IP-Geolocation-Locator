@@ -1,12 +1,12 @@
 import sys
 from flask import Flask
-from PythonApps import iplocator
+import iplocator
 from flask import jsonify
 import argparse
 
 app = Flask(__name__)
 
-sys.path.append('/var/jenkins_home/workspace/DockerNode/PythonApps/')
+sys.path.append('/var/jenkins_home/workspace/DockerNode/')
 
 
 @app.route("/ip", methods=['GET', 'POST'])
